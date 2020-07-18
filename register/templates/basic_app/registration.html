@@ -1,0 +1,15 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+  {% if registered %}
+    <h1>Thanks For Registering!</h1>
+    <h2>We'll get back to you soon.</h2>
+  {% else %}
+    <h1>Please fill in the form</h1>
+    <form class="form-group" enctype="multipart/form-data" method="post">
+      {{user_form.as_p}}
+      {{profile_form.as_p}}
+      {% csrf_token %}
+      <input type="submit" class="btn btn-primary" name="" value="Submit">
+    </form>
+  {% endif %}
+{% endblock %}
